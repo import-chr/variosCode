@@ -1,1 +1,5 @@
-archivo de texto plano
+historia de christian
+
+a la fecha tengo 21 años de edad
+
+- archivo curso git
