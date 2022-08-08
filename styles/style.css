@@ -50,3 +50,10 @@ body
     background: white;
     padding: 1em;
 }
+
+#piep
+{
+    background-color: #777;
+    text-align: center;
+    color: white;
+}
