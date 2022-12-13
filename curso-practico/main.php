@@ -1,19 +1,14 @@
 <?php
-$palabras = array("sol", "luna", "nube");
-$letras = array();
+$palabras = array("sol", "luna", "nube", "planeta", "estrella");
 
-for($i = 0; $i < 3; $i++) {
-    $letras[$i] = str_shuffle($palabras[$i]);
+$form = "<form action = 'evaluador.php'>";
+
+for($i = 0; $i < count($palabras); $i++) {
+    $form .= str_shuffle($palabras[$i]) . "<input type = 'text' name = 'palabra$i'> <br>";
 }
 
-print_r($letras);
+$button = "<button type = 'submit'>Enviar</button>";
+$endForm = "</form>";
 
-echo "
-<form action = 'evaluador.php'>
-    <input type = 'text' name = 'palabra0'/>
-    <input type = 'text' name = 'palabra1'/>
-    <input type = 'text' name = 'palabra2'/>
-    <button type = 'submit'>Enviar</button>
-</form>
-";
+echo $form.$button.$endForm;
 ?>
