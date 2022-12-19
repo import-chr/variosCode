@@ -2,3 +2,4 @@
 composer.phar
 /_composer/vendor/
 /dataManipulation/vendor/
+/phpoo/vendor/
