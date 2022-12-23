@@ -1,0 +1,20 @@
+{
+    "name": "chrlr/money-control",
+    "description": "money control (transactions)",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "chirs",
+            "email": "yosoypro_117@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Database\\": "database/",
+            "App\\": "app/",
+            "Router\\": "router/"
+        }
+    },
+    "require": {}
+}
