@@ -6,9 +6,8 @@ use App\Enums\IncomeTypeEnum;
 use App\Enums\PaymentMethodEnum;
 use App\Enums\WithdrawalTypeEnum;
 
-require("vendor/autoload.php");
+require("../vendor/autoload.php");
 
-/*
 $incomes_controller = new IncomesControllers();
 $incomes_controller->store([
     "payment_method" => PaymentMethodEnum::BacnkAccount->value,
@@ -17,15 +16,16 @@ $incomes_controller->store([
     "amount" => 990,
     "description" => "pago salarial"
 ]);
-*/
 
 /*
 $incomes_controller = new IncomesControllers();
 $incomes_controller->index();
 */
 
+/*
 $incomes_controller = new IncomesControllers();
 $incomes_controller->destroy(1);
+*/
 
 /*
 $withdrawal_controller = new WithdrawalsControllers();
