@@ -22,7 +22,7 @@ class IncomesControllers {
 
         $results = $stmt->fetchAll();
 
-        require("../../resources/views/incomes/index.php");
+        require("../resources/views/incomes/index.php");
 
     }
 
