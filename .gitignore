@@ -1,6 +1,6 @@
 ### Composer ###
 composer.phar
-/_composer/vendor/
-/dataManipulation/vendor/
-/phpoo/vendor/
-/moneyControl/vendor/
+PHP/_composer/vendor/
+PHP/dataManipulation/vendor/
+PHP/phpoo/vendor/
+PHP/moneyControl/vendor/
