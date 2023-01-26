@@ -73,6 +73,7 @@ PHP/moneyControl/vendor/
 
 ### VisualStudioCode ###
 .vscode/*
+POO_languages/.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
