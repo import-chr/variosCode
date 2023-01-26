@@ -1,4 +1,4 @@
-# <div align="center">Repositorio para archivos varios PHP</div>  
+# <div align="center">Repositorio Cusos</div>  
   
 
 - 🔭 Archivos de cursos Platzi
