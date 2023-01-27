@@ -1,3 +1,3 @@
 public class Payment {
-    int id;
+    Integer id;
 }

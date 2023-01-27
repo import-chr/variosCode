@@ -1,5 +1,5 @@
 public class Account {
-    int id;
+    Integer id;
     String name;
     String document;
     String email;
