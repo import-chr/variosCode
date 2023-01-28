@@ -1,10 +1,13 @@
 ### Composer ###
-
 composer.phar
 PHP/_composer/vendor/
 PHP/dataManipulation/vendor/
 PHP/phpoo/vendor/
 PHP/moneyControl/vendor/
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+POO_languages/PYTHON/__pycache__/
 
 ### Images ###
 # JPEG
