@@ -1,3 +1,3 @@
-let car0 = new Car("AFV257", new Account("Carlos Flores", "ca940285"));
+let uberx = new UberX("AFV257", new Account("Carlos Flores", "ca940285"), "Chevrolet", "Spark");
 
-car0.printDataCar();
+uberx.printDataCar();
