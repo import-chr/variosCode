@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### Composer ###
 composer.phar
 PHP/_composer/vendor/
@@ -93,3 +94,6 @@ POO_languages/.vscode/*
 # Ignore all local history of files
 .history
 .ionide
+=======
+imagenes/facil.png
+>>>>>>> hyperblog/main
