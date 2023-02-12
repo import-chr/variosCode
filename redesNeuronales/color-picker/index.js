@@ -5,4 +5,7 @@ function update(color) {
     val.push(color.channel('B'));
 
     console.log(val);
+
+    let div = document.getElementById("sitio");
+    div.style.background = color.toHEXString();
 }
