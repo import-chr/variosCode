@@ -93,3 +93,6 @@ POO_languages/.vscode/*
 # Ignore all local history of files
 .history
 .ionide
+
+### jscolor ###
+redesNeuronales/color-picker/jscolor.js
