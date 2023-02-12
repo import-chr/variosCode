@@ -27,7 +27,7 @@ function update(color) {
     };
 
     let result = network.run(inp);
-    console.log(result);
+    // console.log(result);
 
     if(result.color > 0.5) {
         div.style.color = "#fff";
