@@ -20,23 +20,29 @@ val respuestas = mapOf(
 )
 
 fun main() {
-    // Declarar el mensaje de entrada del programa
-    println("Hola soy tu bola 8 magica creada en Kotlin. ¿Cual de estas opciones deseas realizar? ")
-    println("1. Realizar una pregunta.")
-    println("2. Revisar todas las respuestas.")
-    println("3. Salir")
+    while(true) {
+        // Declarar el mensaje de entrada del programa
+        println("Hola soy tu bola 8 magica creada en Kotlin. ¿Cual de estas opciones deseas realizar? ")
+        println("1. Realizar una pregunta.")
+        println("2. Revisar todas las respuestas.")
+        println("3. Salir")
 
-    // Obtener el valor del usuario y convertirlo a un entero nullable
-    val valorIngresado = readLine()
+        // Obtener el valor del usuario y convertirlo a un entero nullable
+        val valorIngresado = readLine()
 
-    // Dependiendo del numero utilizamos el when para realizar una acción.
-    when (valorIngresado){
-        "1" -> realizarPregunta()
-        "2" -> mostrarRespuestas()
-        "3" -> salir()
-        else -> mostrarError()
+        // Dependiendo del numero utilizamos el when para realizar una acción.
+        when (valorIngresado){
+            "1" -> realizarPregunta()
+            "2" -> mostrarRespuestas()
+            "3" ->  {
+                salir()
+                break
+            }
+            else -> mostrarError()
+        }
+
+        println()
     }
-
 }
 
 //Mostramos un error por pantalla
