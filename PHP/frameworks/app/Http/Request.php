@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use Exception;
+
 class Request {
     protected $segments = [];
     protected $controller;
@@ -66,6 +68,15 @@ class Request {
         $controller = $this->getController();
         $method = $this->getMethod();
         $response = call_user_func([new $controller, $method]);
-        $response->send();
+        
+        try {
+            if($response instanceof Response) {
+                $response->send();
+            } else {
+                throw new Exception("Error Processing Request");
+            }
+        } catch(Exception $e) {
+            echo "Details {$e->getMessage()}";
+        }
     }
 }
