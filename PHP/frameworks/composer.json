@@ -1,0 +1,22 @@
+{
+    "name": "chris/frameworks",
+    "description": "Curso Frameworks de PHP",
+    "authors": [
+        {
+            "name": "chirs",
+            "email": "yosoypro_117@hotmail.com"
+        }
+    ],
+
+    "require": {},
+
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+
+        "files": [
+            "app/helpers.php"
+        ]
+    }
+}
