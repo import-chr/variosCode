@@ -15,8 +15,8 @@ cliente_socket.connect(direccion_servidor)
 #conexion con el servidor
 
 #COMIENZA FASE DE COMUNICACION 
-for i in range(5):
-    try:
+try:
+    for i in range(5):
         # Enviar datos al servidor
         message = input() # "Hola, servidor"
         cliente_socket.sendall(message.encode('utf-8'))
@@ -25,9 +25,8 @@ for i in range(5):
         data = cliente_socket.recv(1024)
         print(f"Respuesta del servidor: {data.decode('utf-8')}")
 
-    except:
-        print ('\n Hubo un fallo en la fase de comunicacion')
-
+except:
+    print ('\n Hubo un fallo en la fase de comunicacion')
 
 # Cerrar la conexión
 cliente_socket.close()

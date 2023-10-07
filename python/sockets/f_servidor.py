@@ -19,17 +19,17 @@ while True:
     client_socket, client_address = server_socket.accept()
     print(f"Conexión entrante desde {client_address}")
 
-    for i in range(5):
-        try:
+    try:
+        for i in range(5):
             # Recibir datos del cliente
             data = client_socket.recv(1024)
             print(f"Datos recibidos del cliente: {data.decode('utf-8')}")
             # Enviar respuesta al cliente
             response = input() # "Hola, cliente"
             client_socket.sendall(response.encode('utf-8'))
-        except:
-            print ('\n Hubo un fallo en la fase de comunicacion')
-            
-            # Cerrar las conexiones
-            client_socket.close()        
-            server_socket.close()
+    except:
+        print ('\n Hubo un fallo en la fase de comunicacion')
+        
+        # Cerrar las conexiones
+        client_socket.close()        
+        # server_socket.close()
