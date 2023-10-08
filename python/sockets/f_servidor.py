@@ -20,15 +20,22 @@ while True:
     print(f"Conexión entrante desde {client_address}")
 
     try:
-        for i in range(5):
-            # Recibir datos del cliente
-            data = client_socket.recv(1024)
-            print(f"Datos recibidos del cliente: {data.decode('utf-8')}")
-            # Enviar respuesta al cliente
-            response = input() # "Hola, cliente"
-            client_socket.sendall(response.encode('utf-8'))
+        with open("cuento_servidor.txt", 'w') as cServidor:
+            while True:
+                # Recibir datos del cliente
+                data = client_socket.recv(1024)
+
+                if not data:
+                    break
+                
+                linea = data.decode('utf-8')
+                print(f"Datos recibidos del cliente: {linea}")
+                cServidor.write(linea)
+                # Enviar respuesta al cliente
+                response = "linea recibida y escrita en el fichero" # "Hola, cliente"
+                client_socket.sendall(response.encode('utf-8'))
     except:
-        print ('\n Hubo un fallo en la fase de comunicacion')
+        print ('\n Hubo un fallo en la fase de comunicacion servidor')
         
         # Cerrar las conexiones
         client_socket.close()        
