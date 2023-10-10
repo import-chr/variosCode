@@ -20,7 +20,7 @@ while True:
     print(f"Conexión entrante desde {client_address}")
 
     try:
-        with open("cuento_servidor.txt", 'w') as cServidor:
+        with open("cuento_servidor.txt", 'a') as cServidor:
             while True:
                 # Recibir datos del cliente
                 data = client_socket.recv(1024)
