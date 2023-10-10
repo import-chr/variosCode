@@ -32,7 +32,7 @@ while True:
                 print(f"Datos recibidos del cliente: {linea}")
                 cServidor.write(linea)
                 # Enviar respuesta al cliente
-                response = "linea recibida y escrita en el fichero" # "Hola, cliente"
+                response = "linea escrita en el archivo" # "Hola, cliente"
                 client_socket.sendall(response.encode('utf-8'))
     except:
         print ('\n Hubo un fallo en la fase de comunicacion servidor')
