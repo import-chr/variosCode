@@ -1,5 +1,8 @@
 import socket
 import sys
+
+# CLIENTE - TRANSFERENCIA DE DATOS DE UN FICHERO
+
 # Configuración del servidor
 host = 'localhost'
 port = 12345
