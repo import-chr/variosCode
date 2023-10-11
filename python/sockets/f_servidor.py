@@ -1,7 +1,7 @@
 import socket
 import sys
 
-# CLIENTE - TRANSFERENCIA DE DATOS DE UN FICHERO
+# ADIOS - FIN DE COMUNICACION
 
 # Configuración del servidor
 host = 'localhost'
@@ -23,22 +23,20 @@ while True:
     print(f"Conexión entrante desde {client_address}")
 
     try:
-        with open("cuento_servidor.txt", 'a') as cServidor:
-            while True:
-                # Recibir datos del cliente
-                data = client_socket.recv(1024)
+        for i in range(5):
+            # Recibir datos del cliente
+            data = client_socket.recv(1024)
+            print(f"Datos recibidos del cliente: {data.decode('utf-8')}")
 
-                if not data:
-                    break
-                
-                linea = data.decode('utf-8')
-                print(f"Datos recibidos del cliente: {linea}")
-                cServidor.write(linea)
-                # Enviar respuesta al cliente
-                response = "linea escrita en el archivo" # "Hola, cliente"
-                client_socket.sendall(response.encode('utf-8'))
+            if "adios" in data.decode('utf-8'):
+                print("cerrando conexion con el cliente")
+                break #client_socket.close()
+
+            # Enviar respuesta al cliente
+            response = input() # "Hola, cliente"
+            client_socket.sendall(response.encode('utf-8'))
     except:
-        print ('\n Hubo un fallo en la fase de comunicacion servidor')
+        print ('\n Hubo un fallo en la fase de comunicacion')
         
         # Cerrar las conexiones
         client_socket.close()        

@@ -1,7 +1,7 @@
 import socket
 import sys
 
-# CLIENTE - TRANSFERENCIA DE DATOS DE UN FICHERO
+# ADIOS - FIN DE COMUNICACION
 # INICIA FASE DE CONFIGURACION
 
 #crea el socket
@@ -17,20 +17,20 @@ cliente_socket.connect(direccion_servidor)
 
 # COMIENZA FASE DE COMUNICACION
 try:
-    with open("cuento_cliente.txt", 'r') as cCliente:
-        lineas = cCliente.readlines()
-        for linea in lineas:
-            # Enviar datos al servidor
-            # message = input() # "Hola, servidor"
-            cliente_socket.sendall(linea.encode('utf-8'))
+    for i in range(5):
+        # Enviar datos al servidor
+        message = input() # "Hola, servidor"
+        cliente_socket.sendall(message.encode('utf-8'))
 
-            # Recibir respuesta del servidor
-            data = cliente_socket.recv(1024)
-            print(f"Respuesta del servidor: {data.decode('utf-8')}")
-except FileNotFoundError:
-    print("El archivo 'cuento' no se encuentra")
-except Exception as e:
-    print(f"Se produjo un error: {str(e)}")
+        # Recibir respuesta del servidor
+        data = cliente_socket.recv(1024)
+        print(f"Respuesta del servidor: {data.decode('utf-8')}")
+
+        if "adios" in data.decode('utf-8'):
+            print("cerrando conexion con el servidor")
+            break #cliente_socket.close()
+except:
+    print ('\n Hubo un fallo en la fase de comunicacion')
 
 # Cerrar la conexión
 cliente_socket.close()
