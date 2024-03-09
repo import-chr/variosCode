@@ -45,3 +45,29 @@ cipheredArr = cifrar(message, key)
 cipheredStr = toStr(cipheredArr, alphabet, alpha)
 
 print(cipheredStr)
+
+# ===================================
+# >>------  DESCIFRADO  ------<<
+# ===================================
+vigereneText = input("ingresa la frase a descifrar: ")
+desKey = input("ingresa la llave de descifrado: ")
+
+def descifrar(message, key):
+    arrKey = fillArray(key)
+    arrMess = fillArray(message)
+    arrDescipher = []
+    j = 0
+
+    for i in range(len(arrMess)):
+        arrDescipher.append((arrMess[i] - arrKey[j]) % alpha)
+        j += 1
+
+        if j >= (len(arrKey)):
+            j = 0
+
+    return arrDescipher
+
+descipherArr = descifrar(vigereneText, desKey)
+descipherStr = toStr(descipherArr, alphabet, alpha)
+
+print(descipherStr)
