@@ -31,9 +31,9 @@ class CifradoCesar:
         return aN
 
 # ===================================
-# >>------  OBJETO  ------<<
+# >>------  INSTANCIA  ------<<
 # ===================================
-algoritmo = CifradoCesar()
+cesar = CifradoCesar()
 
 # ===================================
 # >>------  CIFRADO  ------<<
@@ -41,8 +41,8 @@ algoritmo = CifradoCesar()
 message = input("ingresa la frase a cifrar: ")
 key = int(input("ingresa la llave de cifrado: "))
 
-cesarArr = algoritmo.cifrar(message, key)
-cesarStr = algoritmo.toStr(cesarArr)
+cesarArr = cesar.cifrar(message, key)
+cesarStr = cesar.toStr(cesarArr)
 
 print(f"cesar (cifrado): {cesarStr}")
 
@@ -52,7 +52,7 @@ print(f"cesar (cifrado): {cesarStr}")
 cesarText = input("Ingrese la frase a descifrar: ")
 key = int(input("Ingrese la llave de descifrado: "))
 
-messageArr = algoritmo.descifrar(cesarText, key)
-messageStr = algoritmo.toStr(messageArr)
+messageArr = cesar.descifrar(cesarText, key)
+messageStr = cesar.toStr(messageArr)
 
 print(f"cesar (descifrado): {messageStr}")
