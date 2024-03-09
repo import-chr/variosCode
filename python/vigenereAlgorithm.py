@@ -1,9 +1,16 @@
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 alpha = len(alphabet)
-print(alpha)
 
 def getIdM(m, i = 0):
     return alphabet.find(m[i])
+
+def fillArray(text):
+    arr = []
+
+    for i in range(len(text)):
+        arr.append(getIdM(text[i]))
+    
+    return arr
 
 def toStr(arr, abc, alpha):
     arrStr = []
@@ -20,30 +27,21 @@ message = input("ingresa la frase a cifrar: ")
 key = input("ingresa la llave de cifrado: ")
 
 def cifrar(message, key):
-    arrKey = []
-    arrMess = []
+    arrKey = fillArray(key)
+    arrMess = fillArray(message)
     arrCipher = []
     j = 0
 
-    for i in range(len(key)):
-        arrKey.append(getIdM(key[i]))
-
-    for i in range(len(message)):
-        arrMess.append(getIdM(message[i]))
-
     for i in range(len(arrMess)):
-        arrSum = arrMess[i] + arrKey[j]
-
+        arrCipher.append((arrMess[i] + arrKey[j]) % alpha)
         j += 1
 
         if j >= (len(arrKey)):
             j = 0
 
-        arrCipher.append(arrSum % alpha)
-    print(arrCipher)
     return arrCipher
 
-arreglo = cifrar(message, key)
-arregloStr = toStr(arreglo, alphabet, alpha)
+cipheredArr = cifrar(message, key)
+cipheredStr = toStr(cipheredArr, alphabet, alpha)
 
-print(arregloStr)
+print(cipheredStr)
