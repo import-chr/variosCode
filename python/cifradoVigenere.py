@@ -22,6 +22,19 @@ class CifradoVigenere:
         
         return "".join(arrC)
     
+    def spaceStr(self, original, joined):
+        joined_spaces = []
+        joined_i = 0
+
+        for char in original:
+            if char == " ":
+                joined_spaces.append(" ")
+            else:
+                joined_spaces.append(joined[joined_i])
+                joined_i += 1
+        
+        return "".join(joined_spaces)
+    
     def cifrar(self, message, key):
         arrMess = self.fillArr(message)
         arrKey = self.fillArr(key)
@@ -63,10 +76,11 @@ vigenere = CifradoVigenere()
 message = input("ingresa la frase a cifrar: ")
 key = input("ingresa la llave de cifrado: ")
 
-cipheredArr = vigenere.cifrar(message, key)
+cipheredArr = vigenere.cifrar(message.replace(" ", ""), key)
 cipheredStr = vigenere.toStr(cipheredArr)
+ciphered = vigenere.spaceStr(message, cipheredStr)
 
-print(f"vigenere (cifrado): {cipheredStr}")
+print(f"vigenere (cifrado): {ciphered}")
 
 # ===================================
 # >>------  DESCIFRADO  ------<<
@@ -74,7 +88,8 @@ print(f"vigenere (cifrado): {cipheredStr}")
 vigereneText = input("ingresa la frase a descifrar: ")
 desKey = input("ingresa la llave de descifrado: ")
 
-descipherArr = vigenere.descifrar(vigereneText, desKey)
+descipherArr = vigenere.descifrar(vigereneText.replace(" ", ""), desKey)
 descipherStr = vigenere.toStr(descipherArr)
+descipher = vigenere.spaceStr(vigereneText, descipherStr)
 
-print(f"vegenere (descifrado): {descipherStr}")
+print(f"vegenere (descifrado): {descipher}")
