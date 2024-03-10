@@ -14,6 +14,19 @@ class CifradoCesar:
         
         return "".join(arrC)
     
+    def spaceStr(self, original, joined):
+        joined_spaces = []
+        joined_i = 0
+
+        for char in original:
+            if char == " ":
+                joined_spaces.append(" ")
+            else:
+                joined_spaces.append(joined[joined_i])
+                joined_i += 1
+        
+        return "".join(joined_spaces)
+    
     def cifrar(self, m, k):
         aN = []
 
@@ -41,10 +54,11 @@ cesar = CifradoCesar()
 message = input("ingresa la frase a cifrar: ")
 key = int(input("ingresa la llave de cifrado: "))
 
-cesarArr = cesar.cifrar(message, key)
+cesarArr = cesar.cifrar(message.replace(" ", ""), key)
 cesarStr = cesar.toStr(cesarArr)
+cesarF = cesar.spaceStr(message, cesarStr)
 
-print(f"cesar (cifrado): {cesarStr}")
+print(f"cesar (cifrado): {cesarF}")
 
 # ===================================
 # >>------  DESCIFRADO  ------<<
@@ -52,7 +66,8 @@ print(f"cesar (cifrado): {cesarStr}")
 cesarText = input("Ingrese la frase a descifrar: ")
 key = int(input("Ingrese la llave de descifrado: "))
 
-messageArr = cesar.descifrar(cesarText, key)
+messageArr = cesar.descifrar(cesarText.replace(" ", ""), key)
 messageStr = cesar.toStr(messageArr)
+messageF = cesar.spaceStr(cesarText, messageStr)
 
-print(f"cesar (descifrado): {messageStr}")
+print(f"cesar (descifrado): {messageF}")
