@@ -1,22 +1,22 @@
 class CifradoCesar:
     def __init__(self) -> None:
-      self.alphabet = "abcdefghijklmnopqrstuvwxyz"
-      self.alpha = len(self.alphabet)
+      self.alphabet: str = "abcdefghijklmnopqrstuvwxyz"
+      self.alpha: int = len(self.alphabet)
       
-    def getIdM(self, m, i = 0):
+    def getIdM(self, m: str, i: int = 0) -> int:
         return self.alphabet.find(m[i])
     
-    def toStr(self, arr):
-        arrC = []
+    def toStr(self, arr: list[int]) -> str:
+        arrC: list[str] = []
 
         for i in range(len(arr)):
             arrC.append(self.alphabet[arr[i] % self.alpha])
         
         return "".join(arrC)
     
-    def spaceStr(self, original, joined):
-        joined_spaces = []
-        joined_i = 0
+    def spaceStr(self, original: str, joined: str) -> str:
+        joined_spaces: list[str] = []
+        joined_i: int = 0
 
         for char in original:
             if char == " ":
@@ -27,16 +27,16 @@ class CifradoCesar:
         
         return "".join(joined_spaces)
     
-    def cifrar(self, m, k):
-        aN = []
+    def cifrar(self, m: str, k: int) -> list[int]:
+        aN: list[int] = []
 
         for i in range(len(m)):
            aN.append(self.getIdM(m, i) + (k % self.alpha))
 
         return aN
     
-    def descifrar(self, m, k):
-        aN = []
+    def descifrar(self, m: str, k: int) -> list[int]:
+        aN: list[int] = []
 
         for i in range(len(m)):
            aN.append(self.getIdM(m, i) - (k % self.alpha))
@@ -46,28 +46,28 @@ class CifradoCesar:
 # ===================================
 # >>------  INSTANCIA  ------<<
 # ===================================
-cesar = CifradoCesar()
+cesar: CifradoCesar = CifradoCesar()
 
 # ===================================
 # >>------  CIFRADO  ------<<
 # ===================================
-message = input("ingresa la frase a cifrar: ")
-key = int(input("ingresa la llave de cifrado: "))
+message: str = input("ingresa la frase a cifrar: ")
+keyCipher: int = int(input("ingresa la llave de cifrado: "))
 
-cesarArr = cesar.cifrar(message.replace(" ", ""), key)
-cesarStr = cesar.toStr(cesarArr)
-cesarF = cesar.spaceStr(message, cesarStr)
+cesarArr: list[int] = cesar.cifrar(message.replace(" ", ""), keyCipher)
+cesarStr: str = cesar.toStr(cesarArr)
+cesarF: str = cesar.spaceStr(message, cesarStr)
 
 print(f"cesar (cifrado): {cesarF}")
 
 # ===================================
 # >>------  DESCIFRADO  ------<<
 # ===================================
-cesarText = input("Ingrese la frase a descifrar: ")
-key = int(input("Ingrese la llave de descifrado: "))
+cesarText: str = input("Ingrese la frase a descifrar: ")
+keyDecipher: int = int(input("Ingrese la llave de descifrado: "))
 
-messageArr = cesar.descifrar(cesarText.replace(" ", ""), key)
-messageStr = cesar.toStr(messageArr)
-messageF = cesar.spaceStr(cesarText, messageStr)
+messageArr: list[int] = cesar.descifrar(cesarText.replace(" ", ""), keyDecipher)
+messageStr: str = cesar.toStr(messageArr)
+messageF: str = cesar.spaceStr(cesarText, messageStr)
 
 print(f"cesar (descifrado): {messageF}")
