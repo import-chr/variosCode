@@ -4,16 +4,64 @@ Created on Mon Apr 15 19:37:44 2024
 
 @author: AORUS
 """
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
 
-sudoku: list[list[int]] = [[0,0,0,9,0,7,0,3,0],
-                           [0,0,8,4,0,3,0,0,0],
-                           [0,0,7,0,2,0,0,5,4],
-                           [9,7,0,3,4,1,5,8,0],
-                           [5,8,0,7,0,6,0,0,2],
-                           [6,3,0,2,8,5,0,9,1],
-                           [0,1,5,0,0,0,0,0,0],
-                           [0,0,0,6,0,0,0,2,0],
-                           [0,0,0,5,7,0,0,0,0]]
+def leer_web_sudoku(dificultad = "hard"):
+    driver = webdriver.Firefox()
+    url = "https://www.nytimes.com/puzzles/sudoku/" + dificultad
+    
+    print("Leyendo sudoku")
+    
+    driver.get(url)
+    time.sleep(2)
+    
+    sudoku_dict = {}
+    grid = driver.find_element(By.CLASS_NAME, 'su-board')
+    cells = grid.find_elements(By.TAG_NAME, 'div')
+    
+    for el in cells:
+        cell = el.get_attribute("data-cell")
+        val = el.get_attribute("aria-label")
+        
+        if cell is None or val is None:
+            continue
+        
+        sudoku_dict[int(cell)] = 0 if val == "empty" else int(val)
+        
+    # print(sudoku_dict)
+    
+    sudoku = []
+    x, y = 0, 0
+    
+    for i in range(81):
+        if x == 9:
+            y += 1
+            x = 0
+        
+        if x == 0:
+            sudoku.append([])
+        
+        sudoku[y].append(sudoku_dict[i])
+        x += 1
+    
+    print_sudoku(sudoku)
+    print()
+    
+    return sudoku
+
+def sudoku_manual() -> list[list[int]]:
+    sudoku: list[list[int]] = [[0,0,0,9,0,7,0,3,0],
+                               [0,0,8,4,0,3,0,0,0],
+                               [0,0,7,0,2,0,0,5,4],
+                               [9,7,0,3,4,1,5,8,0],
+                               [5,8,0,7,0,6,0,0,2],
+                               [6,3,0,2,8,5,0,9,1],
+                               [0,1,5,0,0,0,0,0,0],
+                               [0,0,0,6,0,0,0,2,0],
+                               [0,0,0,5,7,0,0,0,0]]
+    return sudoku
 
 def print_sudoku(sudoku):
     for cell in sudoku:
@@ -70,8 +118,13 @@ def resolver_sudoku(sudoku):
                         
                         sudoku[y][x] = 0
                 return
+
+    print('Solucion')
     print_sudoku(sudoku)
+
     return
 
 
-resolver_sudoku(sudoku)
+diff_sudoku = leer_web_sudoku()
+
+resolver_sudoku(diff_sudoku)
