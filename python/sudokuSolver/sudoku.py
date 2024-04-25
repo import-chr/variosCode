@@ -6,13 +6,29 @@ Created on Mon Apr 15 19:37:44 2024
 """
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import pyautogui as pyG
 import time
+
+def subir_solucion(sudoku):
+    for row in sudoku:
+        for ele in row:
+            pyG.press(str(ele))
+            pyG.press('right')
+        
+        pyG.press('down')
+    
+        for c in range(8):
+            pyG.press('left')
+    
+    print("Listo...")
+    
+    return
 
 def leer_web_sudoku(dificultad = "hard"):
     driver = webdriver.Firefox()
     url = "https://www.nytimes.com/puzzles/sudoku/" + dificultad
     
-    print("Leyendo sudoku")
+    print("Leyendo SUDOKU desde {}".format(url))
     
     driver.get(url)
     time.sleep(2)
@@ -107,24 +123,31 @@ def es_posible(x, y, v, sudoku):
     return True
 
 def resolver_sudoku(sudoku):
-    for y in range(9):
-        for x in range(9):
-            if sudoku[y][x] == 0:
+    for fila in range(9):
+        for columna in range(9):
+            if sudoku[fila][columna] == 0:
                 for valor in range(1, 10):
-                    if es_posible(x, y, valor, sudoku):
-                        sudoku[y][x] = valor
+                    if es_posible(columna, fila, valor, sudoku):
+                        sudoku[fila][columna] = valor
                         
-                        resolver_sudoku(sudoku)
+                        resuleto = resolver_sudoku(sudoku)
                         
-                        sudoku[y][x] = 0
-                return
+                        if resuleto:
+                            return True
+                        
+                        sudoku[fila][columna] = 0
+                
+                return False
 
-    print('Solucion')
-    print_sudoku(sudoku)
-
-    return
+    return True
 
 
-diff_sudoku = leer_web_sudoku()
+diff_sudoku = leer_web_sudoku('easy')
+resuelto = resolver_sudoku(diff_sudoku)
 
-resolver_sudoku(diff_sudoku)
+if resuelto:
+    print("SUDOKU resuelto...")
+    print_sudoku(diff_sudoku)
+    subir_solucion(diff_sudoku)
+else:
+    print("SUDOKU no resuelto...")
