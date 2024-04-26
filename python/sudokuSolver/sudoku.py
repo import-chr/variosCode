@@ -10,6 +10,9 @@ import pyautogui as pyG
 import time
 
 def subir_solucion(sudoku):
+    for l in range(3):
+        pyG.press('left')
+
     for row in sudoku:
         for ele in row:
             pyG.press(str(ele))
@@ -142,7 +145,7 @@ def resolver_sudoku(sudoku):
     return True
 
 
-diff_sudoku = leer_web_sudoku('easy')
+diff_sudoku = leer_web_sudoku()
 resuelto = resolver_sudoku(diff_sudoku)
 
 if resuelto:
