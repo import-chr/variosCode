@@ -10,6 +10,24 @@ PHP/frameworks/vendor/
 # Byte-compiled / optimized / DLL files
 POO_languages/PYTHON/__pycache__/
 
+### Video ###
+*.3g2
+*.3gp
+*.asf
+*.asx
+*.avi
+*.flv
+*.mkv
+*.mov
+*.mp4
+*.mpg
+*.ogv
+*.rm
+*.swf
+*.vob
+*.wmv
+*.webm
+
 ### Images ###
 # JPEG
 *.jpg
