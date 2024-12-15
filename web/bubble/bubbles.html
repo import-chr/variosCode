@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbles Effect</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2a2a2a;
+        }
+        #myCanvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="./alphabet.js"></script>
+    <script src="./bubbles.js"></script>
+    <script>
+        let redColor = [0, 100, 63];
+        let orangeColor = [40, 100, 60];
+        let greenColor = [75, 100, 40];
+        let blueColor = [196, 77, 55];
+        let purpleColor = [280, 50, 60];
+        let myName = 'Text Here';
+        let lettersColors = [redColor, orangeColor, greenColor, blueColor, purpleColor];
+        const num = Math.random() * 10;
+
+        if(num < 5) {
+            bubbleShape = 'circle';
+        }
+        else {
+            bubbleShape = 'square';
+        }
+
+        // Configuración del canvas
+        let canvasT = document.getElementById('myCanvas');
+        let context = canvasT.getContext('2d');
+
+        // Dibuja el texto con el efecto
+        drawName(myName, lettersColors);
+        bounceBubbles();
+    </script>
+</body>
+</html>
