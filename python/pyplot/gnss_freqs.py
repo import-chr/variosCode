@@ -16,7 +16,7 @@ color_map = {
 colors = [color_map[constellation] for constellation in constellations]
 
 plt.figure(figsize = (12, 6))
-plt.barh(signals, bandwidths, left = [f - b/2 for f, b in zip(frequencies, bandwidths)], color = colors, edgecolor = 'black')
+bars = plt.barh(signals, bandwidths, left = [f - b / 2 for f, b in zip(frequencies, bandwidths)], color = colors, edgecolor = 'black')
 
 # Lineas de frecuencia central
 for bar, freq in zip(bars, frequencies):
