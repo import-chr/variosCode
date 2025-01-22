@@ -19,9 +19,9 @@ plt.figure(figsize = (12, 6))
 plt.barh(signals, bandwidths, left = [f - b/2 for f, b in zip(frequencies, bandwidths)], color = colors, edgecolor = 'black')
 
 # Lineas de frecuencia central
-for freq, signal, constellation in zip(frequencies, signals, constellations):
-    plt.axvline(freq, color = 'black', linestyle = '--', linewidth = 0.8)
-    plt.text(freq, signals.index(signal), f"{freq} MHz", ha = 'right', va = 'center', fontsize = 8, color = 'black')
+for bar, freq in zip(bars, frequencies):
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_y() + bar.get_height() / 2,
+             f'{freq} MHz', ha = 'center', va = 'center', color = 'black', fontsize = 8)
 
 # Leyendas
 legend_labels = [plt.Line2D([0], [0], color = color, lw = 10, label = name) for name, color in color_map.items()]
