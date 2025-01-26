@@ -17,22 +17,32 @@ freq_color = "#000000"
 
 colors = [color_map[constellation] for constellation in constellations]
 
-plt.figure(figsize = (24, 12))
+plt.figure(figsize = (18, 9))
 bars = plt.barh(signals, bandwidths, left = [f - b / 2 for f, b in zip(frequencies, bandwidths)], color = colors, edgecolor = 'black')
 
 # Lineas de frecuencia central
-for bar, freq in zip(bars, frequencies):
-    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_y() + bar.get_height() / 2,
-             f'{freq} MHz', ha = 'center', va = 'center', color = freq_color, fontsize = 11)
+for i, (bar, freq) in enumerate(zip(bars, frequencies)):
+    if i % 2 == 0 or i == 5:
+        y_position = bar.get_y() + bar.get_height() + 0.1
+    else:
+        y_position = bar.get_y() - 0.15
+    
+    plt.text(bar.get_x() + bar.get_width() / 2,
+             y_position,
+             f'{freq} MHz',
+             ha = 'center',
+             va = 'center',
+             color = freq_color,
+             fontsize = 10)
 
 # Leyendas
 legend_labels = [plt.Line2D([0], [0], color = color, lw = 10, label = name) for name, color in color_map.items()]
-plt.legend(handles = legend_labels, title = 'Constelación', loc = 'upper center', bbox_to_anchor = (0.5, -0.15), ncol = 3)
+plt.legend(handles = legend_labels, title = 'Constelación', loc = 'upper center', bbox_to_anchor = (0.5, -0.15), ncol = 3, fontsize = 10, title_fontsize = 14)
 
 # Ejes
-plt.title('Distribución de Frecuencias y Anchos de Banda de Señales GNSS', fontsize = 28)
-plt.xlabel('Frecuencia (MHz)', fontsize = 22)
-plt.ylabel('Señal GNSS', fontsize = 22)
+plt.title('Distribución de Frecuencias y Anchos de Banda de Señales GNSS', fontsize = 16)
+plt.xlabel('Frecuencia (MHz)', fontsize = 14)
+plt.ylabel('Señal GNSS', fontsize = 14)
 plt.grid(axis = 'x', linestyle = '--', alpha = 0.7)
 plt.tight_layout()
 
