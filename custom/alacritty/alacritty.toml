@@ -1,0 +1,43 @@
+# ===== General =====
+[general]
+import = ["/home/christian/.config/alacritty/themes/themes/vscode.toml"]
+
+# ===== Env =====
+[env]
+TERM = "xterm-256color"
+
+# ===== Window =====
+[window]
+# Dimensiones aproximadas para una ventana rectangular mediana
+dimensions = { columns = 100, lines = 30 }
+# Opacidad del fondo (requiere compositor si estás en X11)
+opacity = 0.85
+# Modo de inicio de la terminal
+startup_mode = "Maximized"
+# Espaciado alrededor del contenido de la terminal (en píxeles)
+padding = { x = 10, y = 10 }
+# Permitir que las aplicaciones cambien el título de la ventana
+dynamic_title = true
+# Blur detrás de la ventana (solo si tu compositor lo soporta, ej. picom/kde)
+blur = true
+
+# ===== Font =====
+[font]
+normal = { family = "MesloLGS NF", style = "Regular" }
+size = 10.0
+
+# ===== Opcionales útiles =====
+[cursor]
+style = { shape = "Block", blinking = "On" }
+
+[mouse]
+# Habilita selección con doble clic por palabras
+
+[selection]
+# Habilita copiar al portapapeles automáticamente al seleccionar texto
+save_to_clipboard = true
+
+[bell]
+# Deshabilita el sonido de campana
+animation = "EaseOut"
+duration = 0
