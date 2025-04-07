@@ -1,0 +1,120 @@
+themes {
+  alabaster {
+    text_unselected {
+      base 0 0 0
+      background 247 247 247
+      emphasis_0 122 62 157   # Magenta oscuro (números/constantes)
+      emphasis_1 170 55 49    # Comentarios
+      emphasis_2 68 140 39    # Strings
+      emphasis_3 119 119 119  # Escape / Punctuation
+    }
+    text_selected {
+      base 0 0 0
+      background 221 221 221
+      emphasis_0 122 62 157
+      emphasis_1 170 55 49
+      emphasis_2 68 140 39
+      emphasis_3 119 119 119
+    }
+    ribbon_selected {
+      base 247 247 247
+      background 0 122 204
+      emphasis_0 255 188 93   # Amarillo brillante
+      emphasis_1 68 140 39
+      emphasis_2 122 62 157
+      emphasis_3 0 131 178    # Cyan
+    }
+    ribbon_unselected {
+      base 0 0 0
+      background 230 230 230
+      emphasis_0 255 188 93
+      emphasis_1 170 55 49
+      emphasis_2 122 62 157
+      emphasis_3 119 119 119
+    }
+    table_title {
+      base 68 140 39
+      background 240 240 240
+      emphasis_0 0 122 204
+      emphasis_1 255 188 93
+      emphasis_2 122 62 157
+      emphasis_3 119 119 119
+    }
+    table_cell_selected {
+      base 0 0 0
+      background 204 204 204
+      emphasis_0 170 55 49
+      emphasis_1 0 122 204
+      emphasis_2 122 62 157
+      emphasis_3 68 140 39
+    }
+    table_cell_unselected {
+      base 0 0 0
+      background 247 247 247
+      emphasis_0 170 55 49
+      emphasis_1 0 122 204
+      emphasis_2 122 62 157
+      emphasis_3 68 140 39
+    }
+    list_selected {
+      base 0 0 0
+      background 221 221 221
+      emphasis_0 122 62 157
+      emphasis_1 0 122 204
+      emphasis_2 68 140 39
+      emphasis_3 255 188 93
+    }
+    list_unselected {
+      base 0 0 0
+      background 247 247 247
+      emphasis_0 122 62 157
+      emphasis_1 0 122 204
+      emphasis_2 68 140 39
+      emphasis_3 255 188 93
+    }
+    frame_selected {
+      base 0 0 0
+      background 204 204 204
+      emphasis_0 0 122 204
+      emphasis_1 170 55 49
+      emphasis_2 122 62 157
+      emphasis_3 255 188 93
+    }
+    frame_highlight {
+      base 255 188 93
+      background 0 0 0
+      emphasis_0 255 188 93
+      emphasis_1 255 188 93
+      emphasis_2 255 188 93
+      emphasis_3 255 188 93
+    }
+    exit_code_success {
+      base 68 140 39
+      background 247 247 247
+      emphasis_0 170 55 49
+      emphasis_1 122 62 157
+      emphasis_2 0 122 204
+      emphasis_3 255 188 93
+    }
+    exit_code_error {
+      base 170 55 49
+      background 247 247 247
+      emphasis_0 255 80 80
+      emphasis_1 0 0 0
+      emphasis_2 0 0 0
+      emphasis_3 0 0 0
+    }
+    multiplayer_user_colors {
+      player_1 122 62 157
+      player_2 0 122 204
+      player_3 255 188 93
+      player_4 68 140 39
+      player_5 0 131 178
+      player_6 170 55 49
+      player_7 255 80 80
+      player_8 119 119 119
+      player_9 0 0 0
+      player_10 255 255 255
+    }
+  }
+}
