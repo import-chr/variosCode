@@ -13,32 +13,55 @@ layout {
     // Tab 1: System
     tab name="system" {
         pane split_direction="horizontal" {
-            pane command="htop" start_suspended=true
-            pane command="gping" {
-                args "google.com"
-                start_suspended true
+            pane split_direction="vertical" {
+	        pane {
+		    name "system information"
+		    command "zsh"
+		    args "-c" "fastfetch; exec zsh"
+		}
+	        pane {
+		    name "ping"
+		    command "gping"
+                    args "google.com"
+                    // start_suspended true
+		}
             }
+	    pane {
+	        name "processes"
+	        command "htop"
+		// start_suspended=true
+	    }
         }
     }
 
     // Tab 2: Dev
     tab name="dev" {
-        pane cwd="~/Documents/code"
+        pane {
+	    cwd "~/Documents/code"
+	}
         pane split_direction="vertical" {
             pane {
+	        cwd "~/Documents/code/variosCode"
+	    }
+            pane {
 	        cwd "~/Documents/code"
-                command "git"
-		args "status"
-                start_suspended true
-            }
-            pane cwd="~/Documents/code"
+	    }
         }
     }
 
     // Tab 3: Config
     tab name="config" split_direction="vertical" {
-        pane cwd="~/.config/alacritty"
-	pane cwd="~/.config/zellij"
-        pane cwd="~/.local/bin"
+        pane {
+	    name "alacritty"
+	    cwd "~/.config/alacritty"
+	}
+	pane {
+	    name "zellij layouts"
+	    cwd "~/.config/zellij"
+	}
+        pane {
+	    name "binaries"
+	    cwd "~/.local/bin"
+	}
     }
 }
